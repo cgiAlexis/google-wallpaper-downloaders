@@ -9,7 +9,7 @@ Now you can use them locally!
 
 ## Usage
 
-Just use Python 2.7.+, no dependencies required.
+cgiAlexis; Updated for Python 3.x, no dependencies required.
 
 ```
 $ python2 chrome-os/download-wallpapers.py
