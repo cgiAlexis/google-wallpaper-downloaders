@@ -81,7 +81,7 @@ def get_wallpaper_path(wallpaper_url):
 
 
 def get_wallpaper_filename(wallpaper_url):
-    return posixpath.basename(urlparse.urlsplit(wallpaper_url).path)
+    return posixpath.basename(urllib.parse.urlsplit(wallpaper_url).path)
 
 
 def download_wallpaper(wallpaper_url, wallpaper_path):
