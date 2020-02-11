@@ -14,6 +14,9 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+2020  Alexis
+Creative Commons Remix / Attribution
 '''
 
 
@@ -21,8 +24,8 @@ import json
 import os
 import posixpath
 import urllib
-import urllib2
-import urlparse
+import urllib.request
+import urllib.parse
 
 
 REMOTE_URL = "https://storage.googleapis.com/chromeos-wallpaper-public/"
@@ -59,11 +62,11 @@ def get_wallpapers_path():
 
 
 def get_wallpapers_info():
-    return json.load(urllib2.urlopen(get_wallpapers_info_url()))
+    return json.load(urllib.request.urlopen(get_wallpapers_info_url()))
 
 
 def get_wallpapers_info_url():
-    return urlparse.urljoin(REMOTE_URL, REMOTE_MANIFEST)
+    return urllib.parse.urljoin(REMOTE_URL, REMOTE_MANIFEST)
 
 
 def get_wallpaper_url(wallpaper_info):
@@ -82,7 +85,7 @@ def get_wallpaper_filename(wallpaper_url):
 
 
 def download_wallpaper(wallpaper_url, wallpaper_path):
-    wallpaper_contents = urllib2.urlopen(urllib.quote(wallpaper_url, safe=":/"))
+    wallpaper_contents = urllib.request.urlopen(urllib.parse.quote(wallpaper_url, safe=":/"))
 
     with open(wallpaper_path, "wb") as wallpaper_file:
         wallpaper_file.write(wallpaper_contents.read())
