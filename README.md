@@ -12,8 +12,8 @@ Now you can use them locally!
 cgiAlexis; Updated for Python 3.x, no dependencies required.
 
 ```
-$ python2 chrome-os/download-wallpapers.py
-$ python2 maps/download-wallpapers.py
+$ python3 chrome-os/download-wallpapers.py
+$ python3 maps/download-wallpapers.py -Broken at this point
 ```
 
 Wallpapers will be downloaded to relative `wallpapers` directories,
