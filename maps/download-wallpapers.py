@@ -20,8 +20,9 @@ limitations under the License.
 import base64
 import json
 import os
-import urllib2
-import urlparse
+import urllib
+import urllib.parse
+import urllib.request
 
 
 REMOTE_URL = "https://www.gstatic.com/prettyearth/"
@@ -71,11 +72,11 @@ def get_wallpaper_ids_path():
 def get_wallpaper_info(wallpaper_id):
     wallpaper_info_url = get_wallpaper_info_url(wallpaper_id)
 
-    return json.load(urllib2.urlopen(wallpaper_info_url))["dataUri"]
+    return json.load(urllib.request.urlopen(wallpaper_info_url))["dataUri"]
 
 
 def get_wallpaper_info_url(wallpaper_id):
-    return urlparse.urljoin(REMOTE_URL, "{id}.json".format(id=wallpaper_id))
+    return urllib.parse.urljoin(REMOTE_URL, "{id}.json".format(id=wallpaper_id))
 
 
 def get_wallpaper_path(wallpaper_id):
